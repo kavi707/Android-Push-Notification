@@ -1,0 +1,15 @@
+{
+  "name": "node-gcm-test",
+  "version": "0.0.0",
+  "description": "ERROR: No README.md file found!",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": "",
+  "author": "",
+  "license": "BSD",
+  "dependencies": {
+    "node-gcm": "~0.9.8"
+  }
+}

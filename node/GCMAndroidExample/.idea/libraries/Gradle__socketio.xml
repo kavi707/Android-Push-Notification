@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Gradle: socketio">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/app/build/libs/socketio.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
