@@ -21,6 +21,8 @@ import android.widget.Toast;
 
 import com.google.android.gcm.GCMRegistrar;
 
+import java.util.Set;
+
 public class MainActivity extends ActionBarActivity {
 
     // label to display gcm messages
@@ -134,6 +136,11 @@ public class MainActivity extends ActionBarActivity {
 
         @Override
         public void onReceive(Context context, Intent intent) {
+
+            Set<String> keySet = intent.getExtras().keySet();
+            for (String s : keySet) {
+                Log.d("String key : ", s);
+            }
 
             String newMessage = intent.getExtras().getString(Config.EXTRA_MESSAGE);
 

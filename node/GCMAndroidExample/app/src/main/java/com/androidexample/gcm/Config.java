@@ -7,7 +7,7 @@ public interface Config {
 
     // CONSTANTS
     static final String YOUR_SERVER_URL =
-            "http://192.168.8.89/gcm-php-app/register.php";
+            "http://192.168.1.4/gcm-php-app/register.php";
 
     // Google project id
     static final String GOOGLE_SENDER_ID = "202817437739";
@@ -20,5 +20,5 @@ public interface Config {
     static final String DISPLAY_MESSAGE_ACTION =
             "com.androidexample.gcm.DISPLAY_MESSAGE";
 
-    static final String EXTRA_MESSAGE = "message1";
+    static final String EXTRA_MESSAGE = "message";
 }

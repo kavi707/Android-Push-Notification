@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import org.json.JSONException;
@@ -21,6 +22,7 @@ import io.socket.SocketIOException;
 public class SenderActivity extends Activity {
 
     private TextView textView;
+    private EditText sendMessageEditText;
     private Button sendButton;
 
     @Override
@@ -30,67 +32,20 @@ public class SenderActivity extends Activity {
 
         textView = (TextView) findViewById(R.id.messageText);
         sendButton = (Button) findViewById(R.id.sendButton);
+        sendMessageEditText = (EditText) findViewById(R.id.sendMessage);
 
         sendButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                String message = sendMessageEditText.getText().toString();
                 try {
                     ToServer tos = new ToServer(textView);
-                    tos.sentEmit();
+                    tos.sentEmit(message);
                 } catch (Exception ex) {
                     ex.printStackTrace();
                 }
             }
         });
     }
-
-    /*public class ToServer implements IOCallback {
-
-        private SocketIO socket;
-        private TextView txtTest;
-
-        public ToServer(TextView a) throws Exception {
-            socket = new SocketIO();
-            this.txtTest = a;
-            socket.connect("http://nodebruno.jit.su", this);
-            socket.emit("my other event", "SERVER RECEBEU ANDROID");
-        }
-
-        @Override
-        public void onDisconnect() {
-            Log.d("onDisconnect","Connection terminated.");
-        }
-
-        @Override
-        public void onConnect() {
-            Log.d("onConnect","Connection established");
-        }
-
-        @Override
-        public void onMessage(String data, IOAcknowledge ioAcknowledge) {
-            txtTest.setText(data);
-            Log.d("Event",data);
-        }
-
-        @Override
-        public void onMessage(JSONObject jsonObject, IOAcknowledge ioAcknowledge) {
-            try {
-                txtTest.setText(jsonObject.toString(2));
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-        }
-
-        @Override
-        public void on(String event, IOAcknowledge ioAcknowledge, Object... objects) {
-            txtTest.setText(event);
-            Log.d("Event",event );
-        }
-
-        @Override
-        public void onError(SocketIOException e) {
-            Log.d("Error", "an Error occurred");
-            e.printStackTrace();
-        }
-    }*/
 }

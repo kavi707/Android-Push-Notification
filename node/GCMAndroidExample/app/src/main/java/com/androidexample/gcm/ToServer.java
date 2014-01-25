@@ -23,10 +23,10 @@ public class ToServer implements IOCallback {
         this.txtTest = a;
     }
 
-    public void sentEmit() throws Exception {
+    public void sentEmit(String message) throws Exception {
         socket = new SocketIO();
-        socket.connect("http://192.168.8.89:3000", this);
-        socket.emit("my other event", "SERVER RECEBEU ANDROID");
+        socket.connect("http://192.168.1.4:3000", this);
+        socket.emit("my other event", message);
     }
 
     @Override
