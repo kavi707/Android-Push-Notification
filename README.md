@@ -57,6 +57,33 @@ NodeJS Example project
 ======================
 
  * NodeJS app to send requests to GCM
+   ----------------------------------
+     1. Edit app.js, and add GCM server application key as parameter of gcm.Sender(<server key>) object
+     2. In same file (app.js) add the registrationIds generated from the devices you use to registrationIds array
+     3. Now from following command you can send push request to GCM application
+            node app.js
  * NodeJS app to receive requests from android client application
+   --------------------------------------------------------------
+     1. This is server to get messages from android clients to nodeJS server
+     2. Edit app.js, now you can see this server is default working on port 3000. You can change it from edit the following line
+            app.listen(<listening port>);
+            Eg. app.listen(3000);
+     3. Now from following command you can up the node server application to listen android clients
+            node app.js
  * Android client
- * socket.io-java-client (this is a library to socket.emits from android to node app) 
+   --------------
+     1. Edit the app/src/main/java/com/androidexample/gcm/Config.java class
+           Add your php server application url to YOUR_SERVER_URL parameter
+           Add GCM project number as GOOGLE_SENDER_ID
+     2. Edit the app/src/main/java/com/androidexample/gcm/ToServer.class
+           Add the node server url, that ur node server application is running to following line
+               socket.connect(<node server url>, this);
+               Eg. socket.connect("http://192.168.1.4:3000", this);
+     3. Build the application and install it on android device or emulator
+ * socket.io-java-client (this is a library to socket.emits from android to node app)
+   ---------------------------------------------------------------------------------- 
+     1. This is a client library use in android to send requests to nodeJS app
+        (https://github.com/Gottox/socket.io-java-client)
+     2. To build,
+           ant jar
+     3. Add this to your android client application
