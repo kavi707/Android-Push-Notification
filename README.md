@@ -21,7 +21,7 @@ JAVA Example projects
 =====================
 
  For this example I used PushNotificationApp (https://cloud.google.com/console/project) from kavi707 google account
-
+```
  * Java Server
    -----------
      1. In this commited code, you need to add the API key you generated in GCM application (server key) to this java server
@@ -36,10 +36,11 @@ JAVA Example projects
            Add your java server url to SERVER_URL parameter
            Add GCM project number as SENDER_ID
      2. Build the application and install it on android device or emulator
+```
 
 PHP Example project
 ===================
-
+```
  * PHP Server
    ----------
      1. Edit the config.php file, and add the mysql database configurations into that.
@@ -52,10 +53,11 @@ PHP Example project
            Add your php server application url to YOUR_SERVER_URL parameter
            Add GCM project number as GOOGLE_SENDER_ID
      2. Build the application and install it on android device or emulator
+```
 
 NodeJS Example project
 ======================
-
+```
  * NodeJS app to send requests to GCM
    ----------------------------------
      1. Edit app.js, and add GCM server application key as parameter of gcm.Sender(<server key>) object
@@ -87,3 +89,4 @@ NodeJS Example project
      2. To build,
            ant jar
      3. Add this to your android client application
+```
